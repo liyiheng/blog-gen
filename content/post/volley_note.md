@@ -32,7 +32,7 @@
 
 - 1.创建缓存目录
 - 2.生成内容为`包名/版本号`的UA，默认为"volley/0"
-- 3.如果未指定stack，在api9以上的设备上使用基于HttpURLConnection的stack，更旧是设备上则是用HttpClient实现的stack。传入的HttpStack为接口类型，因此可以使用自己的HttpStack实现（如okhttp）。
+- 3.如果未指定stack，在api9以上的设备上使用基于HttpURLConnection的stack，更旧是设备上则是用HttpClient实现的stack。<br>传入的HttpStack为`接口类型`，因此可以使用自己的HttpStack实现（如okhttp）。
 - 4.创建BasicNetwork对象和DiskBasedCache对象
 - 5.通过4中的对象构造一个RequestQueue，并调用start()方法后将其返回
 
