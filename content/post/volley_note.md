@@ -1,12 +1,12 @@
 https://github.com/google/volley
 
-###Volley学习笔记
+#Volley学习笔记
 
  虽然更倾向于retrofit + okhttp，项目中使用Volley近一年了，从学习的角度扒一扒Volley代码吧
  
  关于Volley的整体结构和流程不再赘述，直接上代码
  
-#####Volley.java
+###Volley.java
 `Volley.java`用来创建 `RequestQueue`，有两个用来重载静态方法和一个常量（默认的磁盘缓存目录），核心代码如下：
 
       public static RequestQueue newRequestQueue(Context context, HttpStack stack) {
@@ -36,3 +36,35 @@ https://github.com/google/volley
 - 3.如果未指定stack，在api9以上的设备上使用基于HttpURLConnection的stack，更旧是设备上则是用HttpClient实现的stack。传入的HttpStack为接口类型，因此可以使用自己的HttpStack实现（如okhttp）。
 - 4.创建BasicNetwork对象和DiskBasedCache对象
 - 5.通过4中的对象构造一个RequestQueue，并调用start()方法后将其返回
+
+### RequestQueue.java
+RequestQueue有一个缓存dispatcher和一组网络dispatcher，其数量（线程池大小）可指定，默认为4.
+
+stop()方法将所有dispatcher停止<br>
+
+    public void stop() {
+           if (mCacheDispatcher != null) {
+               mCacheDispatcher.quit();
+           }
+           for (int i = 0; i < mDispatchers.length; i++) {
+               if (mDispatchers[i] != null) {
+                   mDispatchers[i].quit();
+               }
+           }
+       }
+
+start()方法则是先调用stop方法，再创建每一个dispatcher并调用其start方法（dispatcher继承Thread）
+
+    public void start() {
+            stop();  // Make sure any currently running dispatchers are stopped.
+            // Create the cache dispatcher and start it.
+            mCacheDispatcher = new CacheDispatcher(mCacheQueue, mNetworkQueue, mCache, mDelivery);
+            mCacheDispatcher.start();
+            for (int i = 0; i < mDispatchers.length; i++) {
+                NetworkDispatcher networkDispatcher = new NetworkDispatcher(mNetworkQueue, mNetwork,
+                        mCache, mDelivery);
+                mDispatchers[i] = networkDispatcher;
+                networkDispatcher.start();
+            }
+        }
+    
