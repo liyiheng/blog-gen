@@ -1,4 +1,5 @@
 ### Java学习笔记--单例模式
+##### 单例多有静态引用，Android中涉及到Activity、Fragment、Service、View等含有Context的对象须注意防止内存泄露
 整理常见的几种单例实现
 - 1.最简单的一种，饿汉模式
 
