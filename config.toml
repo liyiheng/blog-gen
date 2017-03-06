@@ -32,7 +32,7 @@ defaultContentLanguage = "zh-cn"
 
 [author]
   name = "5p2O6LCK5oGSCg=="
-  bio = "Super bio with markdown support **COOL**"
+  bio = "**~ ~ ~**"
   job = "Developer,code monkey...whatever"
   location = "China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
