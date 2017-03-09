@@ -10,7 +10,7 @@
 
 #### 粗略实现
 
-重写RecyclerView的onScrolled方法。在RecyclerView滚动时，获取当前屏幕展示的条目，根据需要对其进行操作<br>以ImageView为例，通过scrollTo或scrollBy方法使图片内容发生偏移
+重写RecyclerView的onScrolled方法。在RecyclerView滚动时，获取当前屏幕展示的条目，根据需要对其进行操作。<br>以ImageView为例，通过scrollTo或scrollBy方法使图片内容发生偏移
 ```
 
 public class MainActivity extends AppCompatActivity {
