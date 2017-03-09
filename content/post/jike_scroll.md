@@ -1,5 +1,12 @@
 #### 实现即刻列表中视频封面滚动效果的尝试
+即刻中的效果，视频条目从底部滑出时如下图：<br>
 
+![bottom](https://github.com/XanthusL/blog-gen/blob/master/static/jike_list_bottom.png)<br>
+
+
+当滚动到顶部时已发生变化，如下图：<br>
+
+![top](https://github.com/XanthusL/blog-gen/blob/master/static/jike_list_top.png)
 
 #### 粗略实现
 
