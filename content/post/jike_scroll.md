@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public interface SubScroller {
         void scroll(int x, int y);
 
-        void reset();
+        void onDetach();
     }
 
     class MyRecyclerView extends RecyclerView {
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             super.onChildDetachedFromWindow(child);
             ViewHolder holder = getChildViewHolder(child);
             if (holder instanceof SubScroller) {
-                ((SubScroller) holder).reset();
+                ((SubScroller) holder).onDetach();
             }
         }
 
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void reset() {
+        public void onDetach() {
             if (iv != null) {
                 iv.scrollTo(0, 0);
             }
