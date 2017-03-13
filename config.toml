@@ -32,7 +32,7 @@ defaultContentLanguage = "zh-cn"
 
 [author]
   name = "5p2O6LCK5oGSCg=="
-  bio = "**~ ~ ~**"
+  bio = "[liyihenggnehiyil@gmail.com](mailto:liyihenggnehiyil@gmail.com?subject=fromBlog)"
   job = "Developer,code monkey...whatever"
   location = "China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
@@ -47,7 +47,7 @@ defaultContentLanguage = "zh-cn"
 
 # Menu Configuration
 [[menu.main]]
-  weight = 0
+  weight = -100
   identifier = "home"
   name = "主页"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-home\"></i>"
@@ -66,19 +66,18 @@ defaultContentLanguage = "zh-cn"
   url = "/tags"
 [[menu.main]]
   weight = 3
-  identifier = "archives"
-  name = "Archives"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
-  url = "/archives"
-[[menu.main]]
-  weight = 4
   identifier = "about"
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/#about"
-
+#[[menu.main]]
+#  weight = 3
+#  identifier = "archives"
+#  name = "Archives"
+#  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-archive\"></i>"
+#  url = "/archives"
 [[menu.links]]
-  weight = 0
+  weight = 1
   identifier = "github"
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
@@ -90,12 +89,12 @@ defaultContentLanguage = "zh-cn"
 #  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-stack-overflow\"></i>"
 #  url = "https://stackoverflow.com/users/636472/kakawait"
 
-[[menu.misc]]
-  weight = 0
-  identifier = "rss"
-  name = "RSS"
-  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
-  url = "/index.xml"
+#[[menu.misc]]
+#  weight = 0
+#  identifier = "rss"
+#  name = "RSS"
+#  pre = "<i class=\"sidebar-button-icon fa fa-lg fa-rss\"></i>"
+#  url = "/index.xml"
 
 [params]
   # Customize date format use to render blog post date, categories and other
