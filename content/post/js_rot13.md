@@ -25,18 +25,19 @@ ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter su
 
 
 代码如下：
-
-    function rot13(str) {
-      var arr = [];
-      for(var i=0;i<str.length;i++){
-        var code = str.charCodeAt(i);
-        if(code>=65 && code <= 90){
-          code += 13;
-          if(code>90){
-            code -= 26;
-          }
+```javascript
+  function rot13(str) {
+    var arr = [];
+    for(var i=0;i<str.length;i++){
+      var code = str.charCodeAt(i);
+      if(code>=65 && code <= 90){
+        code += 13;
+        if(code>90){
+          code -= 26;
         }
-        arr.push(String.fromCharCode(code));
       }
-      return arr.join('');
+      arr.push(String.fromCharCode(code));
     }
+    return arr.join('');
+  }
+```

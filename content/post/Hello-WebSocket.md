@@ -26,20 +26,20 @@ http是无状态协议，即时通讯？还是xmpp或者直接怼tcp吧（qq似�
 -------------------------------------------------------------
 
 客户端部分也就是网页，核心部分用JavaScript实现（废话），以下是代码（感谢[小伙伴](https://github.com/moshen1223 "moshen1223")）
-
-	    var sock = null;
-        var wsuri = "ws://192.168.1.104:1234/chat/in";
-        window.onload = function() {
-            sock = new WebSocket(wsuri);
-            sock.onmessage = function(e) {
-                document.getElementById('view').innerHTML += (e.data +'<br/>');
-            }
-        };
-        function send() {
-            var msg = document.getElementById('message').value;
-            sock.send(msg);
-        };
-
+```js
+var sock = null;
+var wsuri = "ws://192.168.1.104:1234/chat/in";
+window.onload = function() {
+    sock = new WebSocket(wsuri);
+    sock.onmessage = function(e) {
+        document.getElementById('view').innerHTML += (e.data +'<br/>');
+    }
+};
+function send() {
+    var msg = document.getElementById('message').value;
+    sock.send(msg);
+};
+```
 客户端逻辑比较简单，点击按钮后调用send方法将用户输入的内容通过WebSocket发给后端，
 另一方面，接受到后端的数据后展示给用户
 
@@ -56,34 +56,34 @@ http是无状态协议，即时通讯？还是xmpp或者直接怼tcp吧（qq似�
 ##### 具体实现 
 
 WebSocket需要用到golang.org/x/net/websocket包，
-
-    go get golang.org/x/net/websocket
-
+```sh
+go get golang.org/x/net/websocket
+```
 由于golang.org被墙，这种获取方式需要科学上网，也可以从github.com/golang/net/websocket中获取，
 只是获取之后需要mv以下。
 
 定义三个常量，代码中引用，方便修改
-
-    //连接池的容量，若已达到最大值，
-    //再有用户建立连接后直接返回加入聊天室失败
-    const MAX_CONNECTION int = 100 
-    //连接池用map实现，key为int，加入连接池成功后返回一个自增的id，
-    //失败则返回-1
-    const JOIN_ROOM_FAILED int = -1  
-    //用来做一些控制，作用不大
-    const Debug = true
-
+```go
+//连接池的容量，若已达到最大值，
+//再有用户建立连接后直接返回加入聊天室失败
+const MAX_CONNECTION int = 100 
+//连接池用map实现，key为int，加入连接池成功后返回一个自增的id，
+//失败则返回-1
+const JOIN_ROOM_FAILED int = -1  
+//用来做一些控制，作用不大
+const Debug = true
+```
 定义聊天室(连接池)的结构
-
-    type ChatRoom struct {
-        //锁，防止并发时连接数超过最大值	
-        sync.Mutex
-        //用于存放连接指针的map，key为int型的id
-        clients   map[int]*websocket.Conn
-        //id为自增，通过currentId控制
-        currentId int
-    }
-
+```go
+type ChatRoom struct {
+    //锁，防止并发时连接数超过最大值	
+    sync.Mutex
+    //用于存放连接指针的map，key为int型的id
+    clients   map[int]*websocket.Conn
+    //id为自增，通过currentId控制
+    currentId int
+}
+```
 有了结构，再来三个方法就能起飞了</br>
 
 - 加入聊天室
@@ -91,88 +91,88 @@ WebSocket需要用到golang.org/x/net/websocket包，
 - 发送消息
 
 joinRoom方法用来加入聊天室，加入时分配给用户一个id，加入成功后将id返回，加入失败则返回JOIN_ROOM_FAILED
-
-    func (cr *ChatRoom)joinRoom(ws *websocket.Conn) int {
-        cr.Lock()		//加锁
-        defer cr.Unlock() //解锁用defer，不用defer的话需要在返回前解锁
-        if len(cr.clients) >= MAX_CONNECTION {
-            return JOIN_ROOM_FAILED
-        }
-        cr.currentId++
-        cr.clients[cr.currentId] = ws
-        return cr.currentId
+```go
+func (cr *ChatRoom)joinRoom(ws *websocket.Conn) int {
+    cr.Lock()		//加锁
+    defer cr.Unlock() //解锁用defer，不用defer的话需要在返回前解锁
+    if len(cr.clients) >= MAX_CONNECTION {
+        return JOIN_ROOM_FAILED
     }
-
+    cr.currentId++
+    cr.clients[cr.currentId] = ws
+    return cr.currentId
+}
+```
 leftRoom方法在退出聊天室时调用，将连接移除。
-
-    func (cr *ChatRoom)leftRoom(id int) {
-        delete(cr.clients, id)
-    }
-
+```go
+func (cr *ChatRoom)leftRoom(id int) {
+    delete(cr.clients, id)
+}
+```
 发送消息时，sendMessage方法遍历以保存的所有连接并发送。
-
-    func (cr *ChatRoom)sendMessage(msg string) {
-        for _, ws := range cr.clients {
-            if err := websocket.Message.Send(ws, msg); err != nil {
-                log4Demo("发送失败，Err：" + err.Error())
-                //continue
-            }
+```go
+func (cr *ChatRoom)sendMessage(msg string) {
+    for _, ws := range cr.clients {
+        if err := websocket.Message.Send(ws, msg); err != nil {
+            log4Demo("发送失败，Err：" + err.Error())
+            //continue
         }
     }
-
+}
+```
 
 现在路面畅通，随时可以开车
-
-    // 先声明一个聊天室类型的变量，也就是所谓的“连接池”
-    var room ChatRoom
-
+```go
+// 先声明一个聊天室类型的变量，也就是所谓的“连接池”
+var room ChatRoom
+```
 除此之外，还需要两个Handler或者两个Handler方法：一个用来将页面传给浏览器，另一个专门处理WebSocket连接
-
-    //处理页面
-    func Page(writer http.ResponseWriter, request *http.Request) {
-        t, _ := template.ParseFiles("test.html")
-        err:=t.Execute(writer, nil)
-        log4Demo("Page Err:" + err.Error())
+```go
+//处理页面
+func Page(writer http.ResponseWriter, request *http.Request) {
+    t, _ := template.ParseFiles("test.html")
+    err:=t.Execute(writer, nil)
+    log4Demo("Page Err:" + err.Error())
+}
+//处理WebSocket连接
+func Chat(ws *websocket.Conn) {
+    var id int
+    if id = room.joinRoom(ws); id == JOIN_ROOM_FAILED {
+        websocket.Message.Send(ws, "加入聊天室失败")
+        return
     }
-    //处理WebSocket连接
-    func Chat(ws *websocket.Conn) {
-        var id int
-        if id = room.joinRoom(ws); id == JOIN_ROOM_FAILED {
-            websocket.Message.Send(ws, "加入聊天室失败")
-            return
+    defer room.leftRoom(id)
+    ipAddress := strings.Split(ws.Request().RemoteAddr, ":")[0] + "："
+    var err error
+    for {
+        var msg string
+        if err = websocket.Message.Receive(ws, &msg); err != nil {
+            log4Demo("Failed to receive. Err:" + err.Error())
+            break
         }
-        defer room.leftRoom(id)
-        ipAddress := strings.Split(ws.Request().RemoteAddr, ":")[0] + "："
-        var err error
-        for {
-            var msg string
-            if err = websocket.Message.Receive(ws, &msg); err != nil {
-                log4Demo("Failed to receive. Err:" + err.Error())
-                break
-            }
-            msg = ipAddress + msg
-            room.sendMessage(msg)
-        }
+        msg = ipAddress + msg
+        room.sendMessage(msg)
     }
-
+}
+```
 最后就是main方法了，在main方法中初始化一下room变量，再分别注册两个handler方法，监听1234端口
+```go
+func main() {
+    roomMap := make(map[int]*websocket.Conn, MAX_CONNECTION)
+    room = ChatRoom{clients:roomMap, currentId:0}
 
-    func main() {
-        roomMap := make(map[int]*websocket.Conn, MAX_CONNECTION)
-        room = ChatRoom{clients:roomMap, currentId:0}
+    http.Handle("/chat/in", websocket.Handler(Chat))
+    http.HandleFunc("/", Page)
 
-        http.Handle("/chat/in", websocket.Handler(Chat))
-        http.HandleFunc("/", Page)
-
-        if err := http.ListenAndServe(":1234", nil); err != nil {
-            log.Fatal("ListenAndServe:", err)
-        }
+    if err := http.ListenAndServe(":1234", nil); err != nil {
+        log.Fatal("ListenAndServe:", err)
     }
-
+}
+```
 现在可以运行一下试试火力了
-
-    go run main.go
-
+```sh
+go run main.go
+```
 浏览器打开http://localhost:1234/ 就可以看到一个简(简)洁(陋)美(至)观(极)的聊天页面了</br>
 在其他设备同时打开该地址(注意改ip)，多个设备之间就可以实现即时通讯了</br>
 [详细代码地址](https://github.com/XanthusL/websocket-demo "WebSocket-demo")
