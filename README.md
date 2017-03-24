@@ -8,4 +8,13 @@
 - [实现即刻列表中视频封面滚动效果的尝试](https://github.com/XanthusL/blog-gen/blob/master/content/post/jike_scroll.md)
 
 
+---
+### just notes
 
+https://www.codingame.com/home
+
+https://coderbyte.com/challenges
+
+http://gocode.io/
+
+https://leetcode.com/
