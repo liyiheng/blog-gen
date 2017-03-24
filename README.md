@@ -6,7 +6,7 @@
 - [Volley学习笔记](https://github.com/XanthusL/blog-gen/blob/master/content/post/volley_note.md)
 - [Java中单例模式几种常见的实现](https://github.com/XanthusL/blog-gen/blob/master/content/post/java_singleton.md)
 - [实现即刻列表中视频封面滚动效果的尝试](https://github.com/XanthusL/blog-gen/blob/master/content/post/jike_scroll.md)
-
+- [Shell资料整理](https://github.com/XanthusL/blog-gen/blob/master/content/post/shell.md)
 
 ---
 ### just notes
