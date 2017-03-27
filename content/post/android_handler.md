@@ -80,15 +80,15 @@ type Message struct {
 ```go
 func main() {
 	var l Looper
-    // 获取MainLooper，当然也可以创建一个新的。这里是强行模拟Android主线程的套路
+	// 获取MainLooper，当然也可以创建一个新的。这里是强行模拟Android主线程的套路
 	mLooper := l.GetMainLooper()
-    // 创建一个Handler，它的looper为MainLooper。回调方法只是简单地输出Message中What变量的值
+	// 创建一个Handler，它的looper为MainLooper。回调方法只是简单地输出Message中What变量的值
 	h := &Handler{looper:mLooper, Callback:func(msg *Message) {
 		fmt.Println("Looper goroutine...")
 		fmt.Println(msg.What)
 	}}
 	defer mLooper.Loop()
-    // 异步循环获取用户输入
+	// 异步循环获取用户输入
 	go func() {
 		for {
 			var i int
@@ -96,11 +96,11 @@ func main() {
 			if err != nil {
 				continue
 			}else {
-                // 将用户输入的数值作为消息发送
+				// 将用户输入的数值作为消息发送
 				h.Post(&Message{What:i})
-                if i < 0 {
+				if i < 0 {
 					os.Exit(0)
-                }
+				}
 			}
 		}
 	}()
