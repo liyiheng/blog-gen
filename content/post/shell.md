@@ -12,6 +12,8 @@ draft: true
 - [特殊变量](#特殊变量)
 - [替换](#替换)
 - [运算符](#运算符)
+- 字符串
+- 数组
 
 ## 变量
 
@@ -563,4 +565,12 @@ else
    echo "File does not exist"
 fi
 ```
+
+## 字符串
+
+
+
+
+
+
 *To be continued*
