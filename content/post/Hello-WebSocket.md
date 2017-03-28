@@ -18,7 +18,7 @@ http是无状态协议，即时通讯？还是xmpp或者直接怼tcp吧（qq似�
 网页上实现即时通讯的话，xmpp,tcp,udp似乎都不方便用，似乎还是用http轮询来得简单。不过轮询的方式对资源的消耗比较严重。
 <!--more-->
 
-做自由的程序猿，搞喜欢的技术，接下来跟Android就没有直接联系了。</br>
+
 前段时间了解到了WebSocket，在看build-web-application-with-golang的时候发现谢大在书中对WebSocket有了详细的讲解，我就不再搬了，感兴趣的同学点击[传送门](https://github.com/astaxie/build-web-application-with-golang "build-web-application-with-golang")即可。</br>
 看完手痒，不妨动手撸一个简易（简陋）的web聊天室。</br>
 以下是实现过程。有意见欢迎[提issue](https://github.com/XanthusL/websocket-demo/issues "issues")；有建议欢迎[提issue](https://github.com/XanthusL/websocket-demo/issues "issues")；想喷我欢迎[提issue](https://github.com/XanthusL/websocket-demo/issues "issues")；想砍我欢迎[提issue](https://github.com/XanthusL/websocket-demo/issues "issues")
@@ -60,7 +60,7 @@ WebSocket需要用到golang.org/x/net/websocket包，
 go get golang.org/x/net/websocket
 ```
 由于golang.org被墙，这种获取方式需要科学上网，也可以从github.com/golang/net/websocket中获取，
-只是获取之后需要mv以下。
+只是获取之后需要mv一下。
 
 定义三个常量，代码中引用，方便修改
 ```go
