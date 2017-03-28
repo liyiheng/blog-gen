@@ -8,6 +8,7 @@
 - [实现即刻列表中视频封面滚动效果的尝试](https://github.com/XanthusL/blog-gen/blob/master/content/post/jike_scroll.md)
 - [Shell资料整理](https://github.com/XanthusL/blog-gen/blob/master/content/post/shell.md)
 - [Android handler机制简陋描述(golang)](https://github.com/XanthusL/blog-gen/blob/master/content/post/android_handler.md)
+- [Hello protobuf !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
 ---
 ### just notes
 
