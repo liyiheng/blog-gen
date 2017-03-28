@@ -1,6 +1,6 @@
 # blog-gen
 
-本想记录一些，用hugo生成[静态博客](https://xanthusl.github.io/blog/)，特开此repo。怎料懒癌又犯，就直接markdown吧
+本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
 - [golang笔记：WebSocket实现简单的web聊天室](https://github.com/XanthusL/blog-gen/blob/master/content/post/Hello-WebSocket.md)
 - [Volley学习笔记](https://github.com/XanthusL/blog-gen/blob/master/content/post/volley_note.md)
