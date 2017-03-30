@@ -1,10 +1,10 @@
 ---
-title: mongodb入门
+title: MongoDB入门
 date: 2017-03-30
 draft: true
 ---
 
-## mongodb入门
+## MongoDB入门
 - [insert](#insert)
 - [find](#find)
 - [update](#update)
