@@ -11,6 +11,8 @@ draft: true
 - remove
 - explain
 - index
+- 主从复制
+- 读写分离
 
 ### 安装
 在docker中使用，因此：
