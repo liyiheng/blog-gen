@@ -22,10 +22,11 @@ docker pull mongo
 ```sh
 docker run -p 27017:27017 mongo
 ```
-连接到docker, `192.168.1.102`为本机ip, **需要 -i 参数（交互模式）**
+连接到mongo, `192.168.1.102`为本机ip, **需要 -i 参数（交互模式）**
 ```sh
 docker run -it mongo mongo --host 192.168.1.102
 ```
+首次直接run，之后就可以`docker start containerId`了
 ### 一些概念（个人理解）
 - 数据库，同关系型数据库中的数据库
 - 集合，关系型数据库中的表
