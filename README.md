@@ -10,6 +10,7 @@
 - [Android handler机制简陋描述(golang)](https://github.com/XanthusL/blog-gen/blob/master/content/post/android_handler.md)
 - [Hello protobuf !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
+- [Hello Redis !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 ---
 ### just notes
 
