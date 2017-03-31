@@ -1,3 +1,9 @@
+---
+title: Hello Redis
+date: 2017-03-31
+draft: true
+---
+
 # Hello Redis
 
 😎安装
