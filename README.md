@@ -21,3 +21,8 @@ https://coderbyte.com/challenges
 http://gocode.io/
 
 https://leetcode.com/
+
+
+**golang concurrency**
+>Do not communicate by sharing memory; instead, share memory by communicating.
+
