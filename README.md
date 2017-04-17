@@ -14,6 +14,8 @@
 ---
 ### etcetera
 
+[Drinker-roadmap](https://github.com/XanthusL/blog-gen/blob/master/content/post/drinker-roadmap.md)
+
 https://www.codingame.com/home
 
 https://coderbyte.com/challenges
@@ -22,7 +24,6 @@ http://gocode.io/
 
 https://leetcode.com/
 
-[Drinker-roadmap](https://github.com/XanthusL/blog-gen/blob/master/content/post/drinker-roadmap.md)
 
 **golang concurrency**
 >Do not communicate by sharing memory; instead, share memory by communicating.
