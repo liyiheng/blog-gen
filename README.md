@@ -12,7 +12,7 @@
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
 - [Hello Redis !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 ---
-### just notes
+### etcetera
 
 https://www.codingame.com/home
 
@@ -22,6 +22,7 @@ http://gocode.io/
 
 https://leetcode.com/
 
+[Drinker-roadmap](https://github.com/XanthusL/blog-gen/blob/master/content/post/drinker-roadmap.md)
 
 **golang concurrency**
 >Do not communicate by sharing memory; instead, share memory by communicating.
