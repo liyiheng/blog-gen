@@ -12,6 +12,8 @@
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
 - [Hello Redis !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 ---
+### [Notes in code](https://github.com/XanthusL/Playground)
+---
 ### etcetera
 
 [Drinker-roadmap](https://github.com/XanthusL/blog-gen/blob/master/content/post/drinker-roadmap.md)
