@@ -11,13 +11,12 @@
 - [Hello protobuf !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
 - [Hello Redis !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
-- [WheelTimer](https://github.com/XanthusL/Playground/blob/master/golang/mylib/wheel_timer.go)
+- [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
 ---
-### [Notes in code](https://github.com/XanthusL/Playground)
+#### [Notes in code](https://github.com/XanthusL/Playground)
 ---
 ### etcetera
 
-[Drinker-roadmap](https://github.com/XanthusL/blog-gen/blob/master/content/post/drinker-roadmap.md)
 
 https://www.codingame.com/home
 
@@ -27,7 +26,4 @@ http://gocode.io/
 
 https://leetcode.com/
 
-
-**golang concurrency**
->Do not communicate by sharing memory; instead, share memory by communicating.
 
