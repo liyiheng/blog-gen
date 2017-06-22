@@ -8,9 +8,9 @@
 - [实现即刻列表中视频封面滚动效果的尝试](https://github.com/XanthusL/blog-gen/blob/master/content/post/jike_scroll.md)
 - [Shell资料整理](https://github.com/XanthusL/blog-gen/blob/master/content/post/shell.md)
 - [Android handler机制简陋描述(golang)](https://github.com/XanthusL/blog-gen/blob/master/content/post/android_handler.md)
-- [Hello protobuf !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
+- [Hello protobuf](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
-- [Hello Redis !](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
+- [Hello Redis](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 - [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
 ---
 #### [Notes in code](https://github.com/XanthusL/Playground)
