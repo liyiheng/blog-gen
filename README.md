@@ -12,6 +12,7 @@
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
 - [Hello Redis](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 - [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
+- [[译]Golang中JSON和结构体的组合使用](https://github.com/XanthusL/blog-gen/blob/master/content/post/json_composition.md)
 ---
 #### [Notes in code](https://github.com/XanthusL/Playground)
 ---
