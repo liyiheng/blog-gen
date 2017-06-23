@@ -36,7 +36,7 @@ defaultContentLanguage = "zh-cn"
   job = "Developer,code monkey...whatever"
   location = "China"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
-  gravatarEmail = "liyihenggnehiyil@gmail.com"
+  # gravatarEmail = "liyihenggnehiyil@gmail.com"
   # Your profile picture
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
   picture = "https://avatars0.githubusercontent.com/u/16461061?v=3&s=460"
