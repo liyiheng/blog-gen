@@ -2,6 +2,8 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [[译]Golang中JSON和结构体的组合使用](https://github.com/XanthusL/blog-gen/blob/master/content/post/json_composition.md)
+- [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
 - [golang笔记：WebSocket实现简单的web聊天室](https://github.com/XanthusL/blog-gen/blob/master/content/post/Hello-WebSocket.md)
 - [Volley学习笔记](https://github.com/XanthusL/blog-gen/blob/master/content/post/volley_note.md)
 - [Java中单例模式几种常见的实现](https://github.com/XanthusL/blog-gen/blob/master/content/post/java_singleton.md)
@@ -11,8 +13,6 @@
 - [Hello protobuf](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_protobuf.md)
 - [MongoDB入门](https://github.com/XanthusL/blog-gen/blob/master/content/post/mongo_01.md)
 - [Hello Redis](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
-- [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
-- [[译]Golang中JSON和结构体的组合使用](https://github.com/XanthusL/blog-gen/blob/master/content/post/json_composition.md)
 ---
 #### [Notes in code](https://github.com/XanthusL/Playground)
 ---
