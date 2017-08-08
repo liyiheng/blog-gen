@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			outline: none;
+			resize: none;
+			text-align: center;
+		}
+		.view{
+			width: 320px;
+			height: 320px;
+			margin-top: 20px;
+			text-align: left;
+			padding: 5px;
+			margin-bottom: 10px;
+			font-size: 18px;
+			display: inline-block;
+			border: 1px solid #000;
+			overflow:scroll;
+		}
+		p{
+			font-size: 18px;
+		}
+		button{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="view" id="view"></div>
+    <form>
+        <p>
+            Message: <input id="message" type="text">
+        </p >
+    </form>
+    <button onclick="send();">Send Message</button>
+
+    <script type="text/javascript">
+        var sock = null;
+        var wsuri = "ws://192.168.1.104:1234/chat/in";
+        window.onload = function() {
+            sock = new WebSocket(wsuri);
+            sock.onmessage = function(e) {
+                document.getElementById('view').innerHTML += (e.data +'<br/>');
+            }
+        };
+        function send() {
+            var msg = document.getElementById('message').value;
+            sock.send(msg);
+        };
+    </script>
+</body>
+</html>
