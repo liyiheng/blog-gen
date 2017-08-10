@@ -16,7 +16,7 @@
 - [Hello Redis](https://github.com/XanthusL/blog-gen/blob/master/content/post/hello_redis.md)
 ---
 #### [Notes in code](https://github.com/XanthusL/Playground)
-#### [震惊！深度好文！！男默女泪！！！不看后悔！！！！](https://github.com/XanthusL/browser-bookmarks)
+#### [收藏的](https://github.com/XanthusL/browser-bookmarks)
 ---
 ### etcetera
 
