@@ -1,4 +1,4 @@
-#!/usr/bin
+#!/bin/sh
 cd theme
 git clone https://github.com/kakawait/hugo-tranquilpeak-theme.git
 cd -
