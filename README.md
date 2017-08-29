@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [[译]我的go语言使用场景](https://github.com/XanthusL/blog-gen/blob/master/content/post/my_use-case_for_go.md)
 - [git笔记(reflog)](https://github.com/XanthusL/blog-gen/blob/master/content/post/git-note-reflog.md)
 - [[译]Golang中JSON和结构体的组合使用](https://github.com/XanthusL/blog-gen/blob/master/content/post/json_composition.md)
 - [定时任务高效触发](https://github.com/XanthusL/blog-gen/blob/master/code/mylib/wheel_timer.go)
