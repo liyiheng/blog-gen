@@ -1,0 +1,3 @@
+#!/bin/sh
+param='Action=search&Word='+$1
+curl -d $param http://xtk.azurewebsites.net/BingService.aspx
