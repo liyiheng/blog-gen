@@ -159,11 +159,41 @@ defaultContentLanguage = "zh-cn"
   #     url: /#search
   #     icon: search
   #     class: st-search-show-outputs
+  [[params.sharingOptions]]
+    name = "Facebook"
+    icon = "fa-facebook-official"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+  [[params.sharingOptions]]
+    name = "Twitter"
+    icon = "fa-twitter"
+    url = "https://twitter.com/intent/tweet?text=%s"
+
+  [[params.sharingOptions]]
+    name = "Google+"
+    icon = "fa-google-plus"
+    url = "https://plus.google.com/share?url=%s"
+
+  [[params.sharingOptions]]
+    name = "Weibo"
+    icon = "fa-weibo"
+    url = "http://service.weibo.com/share/share.php?&title={{post.permalink}}"
+
+  [[params.sharingOptions]]
+    name = "QQ"
+    icon = "fa-qq"
+    url = "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
+
+  [[params.sharingOptions]] 
+    name = "Qzone"
+    icon = "fa-star"
+    url = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
+
+
   [params.header.rightLink]
     class = ""
     icon = ""
     url = "/#about"
-
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   # [params.footer]
   #   copyright = "<a href=\"https://github.com/XanthusL\">liyiheng</a>"
