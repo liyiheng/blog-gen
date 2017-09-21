@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [[译]用go进行区块链开发1:基本原型](https://github.com/XanthusL/blog-gen/blob/master/content/post/blockchain-in-go-01.md)
 - [[译]在go可执行文件中嵌入数据](https://github.com/XanthusL/blog-gen/blob/master/content/post/embedding-data-in-go-executables.md)
 - [golang笔记：游戏中排行榜的实现](https://github.com/XanthusL/blog-gen/blob/master/content/post/implementation-of-ranking.md)
 - [[译]我的go语言使用场景](https://github.com/XanthusL/blog-gen/blob/master/content/post/my_use-case_for_go.md)
