@@ -184,10 +184,10 @@ defaultContentLanguage = "zh-cn"
     icon = "fa-qq"
     url = "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
 
-  [[params.sharingOptions]] 
-    name = "Qzone"
-    icon = "fa-star"
-    url = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
+#  [[params.sharingOptions]] 
+#    name = "Qzone"
+#    icon = "fa-star"
+#    url = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
 
 
   [params.header.rightLink]
