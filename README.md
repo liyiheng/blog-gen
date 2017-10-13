@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [Dart笔记：Intro to Dart for Java developers](https://github.com/XanthusL/blog-gen/blob/master/content/post/intro-2-dart-4-java-developers.md)
 - [[译]用go进行区块链开发3:持久化与CLI](https://github.com/XanthusL/blog-gen/blob/master/content/post/blockchain-in-go-03.md)
 - [[译]用go进行区块链开发2:工作量证明](https://github.com/XanthusL/blog-gen/blob/master/content/post/blockchain-in-go-02.md)
 - [[译]用go进行区块链开发1:基本原型](https://github.com/XanthusL/blog-gen/blob/master/content/post/blockchain-in-go-01.md)
