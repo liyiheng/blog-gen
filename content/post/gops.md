@@ -15,7 +15,7 @@ thumbnailImagePosition: left
 
 > gops is a command to list and diagnose Go processes currently running on your system.
 
-觉得判断一个进程是否是go程序挺有意思，不放看看它的大致实现。<br>
+觉得判断一个进程是否是go程序挺有意思，不妨看看它的大致实现。<br>
 
 <!--more-->
 
