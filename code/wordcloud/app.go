@@ -56,7 +56,7 @@ func mkCtx(dst *image.RGBA, fnt *truetype.Font) *freetype.Context {
 func main() {
 	w := 400
 	h := 200
-	fontPath := "ipaexm.ttf"
+	fontPath := "wqy-microhei.ttc"
 	outFile := "out.png"
 	bg := image.White
 
