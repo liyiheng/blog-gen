@@ -3,7 +3,7 @@
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
 - [一起来作死，把最烂的代码贴过来吧](https://github.com/XanthusL/blog-gen/issues/1)
-- [google/gops源码分析](https://github.com/XanthusL/blog-gen/blob/master/content/post/gops.md)
+- [google/gops源码分析](content/post/gops.md)
 - [[golang小工具]静态文件服务器](https://github.com/XanthusL/blog-gen/blob/master/content/post/golangkit-fileserver.md)
 - [Dart笔记：Intro to Dart for Java developers](https://github.com/XanthusL/blog-gen/blob/master/content/post/intro-2-dart-4-java-developers.md)
 - [[译]用go进行区块链开发3:持久化与CLI](https://github.com/XanthusL/blog-gen/blob/master/content/post/blockchain-in-go-03.md)
