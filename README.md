@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [golang生成词云](code/wordcloud/README.md)
 - [一起来作死，把最烂的代码贴过来吧](https://github.com/XanthusL/blog-gen/issues/1)
 - [google/gops源码分析](content/post/gops.md)
 - [[golang小工具]静态文件服务器](content/post/golangkit-fileserver.md)
