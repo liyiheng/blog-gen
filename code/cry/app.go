@@ -73,16 +73,16 @@ func main() {
 	}
 	switch p.mode {
 	case modeEncrypt:
-		encrypt(p, true)
+		process(p, true)
 	case modeDecrypt:
-		encrypt(p, false)
+		process(p, false)
 	default:
 		log.Printf("Unsupported mode %d", p.mode)
 		flag.Usage()
 	}
 }
 
-func encrypt(p *params, encrypt bool) {
+func process(p *params, encrypt bool) {
 	key := md5.Sum([]byte(p.key))
 	c, e := aes.NewCipher(key[:])
 	checkErr(e)
