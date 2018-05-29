@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [golang中time.Time“零值”的JSON处理](content/post/mgo_omit_time.md)
 - [混淆一下文件，再也不担心某度网盘上的小电影失效了](code/proguard/app.go)
 - [golang生成词云](https://github.com/XanthusL/wordcloud)
 - [一起来作死，把最烂的代码贴过来吧](https://github.com/XanthusL/blog-gen/issues/1)
