@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [[Rust学习]通过处理字符串实现彩色输出](https://github.com/XanthusL/blog-gen/tree/master/code/rust/color_text)
 - [[Rust学习]创建Vec指定长度](content/post/rust-vec-len.md)
 - [golang中time.Time“零值”的JSON处理](content/post/mgo_omit_time.md)
 - [混淆一下文件，再也不担心某度网盘上的小电影失效了](code/proguard/app.go)
