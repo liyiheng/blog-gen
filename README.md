@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [记一次被黑](content/post/hacked_by_miner.md)
 - [Rust生成词云(改进空白区域查找算法)](https://github.com/XanthusL/wordcloud/tree/master/wordcloud-rs)
 - [[Rust学习]通过处理字符串实现彩色输出](https://github.com/XanthusL/blog-gen/tree/master/code/rust/color_text)
 - [[Rust学习]创建Vec指定长度](content/post/rust-vec-len.md)
