@@ -5,7 +5,7 @@ draft: false
 categories:
   - Secure
 
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 
 

@@ -7,7 +7,7 @@ categories:
 tags:
   - golang
   - JSON
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 
 原文地址：http://attilaolah.eu/2014/09/10/json-and-struct-composition-in-go/

@@ -8,7 +8,7 @@ categories:
 tags:
   - golang
   - game
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 
 游戏开发中排行榜经常出现,接触过的排行榜有两种。一种是由玩家挑战排名比自己靠前的其他玩家，胜利后交换位置；另一种是根据玩家的某特性对所有玩家进行排序。第一种只涉及到两个玩家数据的变化，实现起来比较简单，因此只记录第二种情况。<br>

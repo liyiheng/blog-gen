@@ -6,7 +6,7 @@ categories:
   - golang
 tags:
   - golang
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 
 

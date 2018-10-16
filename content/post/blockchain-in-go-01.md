@@ -8,7 +8,7 @@ categories:
 tags:
   - golang
   - blockchain
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 
 >原文地址 https://jeiwan.cc/posts/building-blockchain-in-go-part-1/

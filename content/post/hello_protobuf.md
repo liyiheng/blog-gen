@@ -7,7 +7,7 @@ categories:
 tags:
   - protobuf
   - Protocol Buffer
-thumbnailImagePosition: left
+#thumbnailImagePosition: left
 ---
 protobuf，独立于语言和平台的二进制数据传输格式。项目地址 https://github.com/google/protobuf
 <!--more-->
