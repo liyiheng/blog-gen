@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on
-"set number                      " Show line numbers
+set number                      " Show line numbers
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -33,6 +33,8 @@ Plugin 'fatih/vim-go'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'elixir-editors/vim-elixir'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -49,6 +51,9 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+"let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
 
 
@@ -61,3 +66,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = ['golint','go']
+let g:syntastic_go_go_args = "vet"
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :NERDTreeToggle<CR>
+
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
