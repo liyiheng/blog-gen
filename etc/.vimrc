@@ -27,6 +27,7 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+Plugin 'https://github.com/tpope/vim-fugitive.git'
 Plugin 'racer-rust/vim-racer'
 Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
@@ -35,6 +36,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
