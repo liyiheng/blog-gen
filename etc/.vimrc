@@ -67,8 +67,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['golint','go']
-let g:syntastic_go_go_args = "vet"
+let g:syntastic_go_checkers = ['golint','govet']
+"let g:syntastic_go_go_args = "vet"
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
