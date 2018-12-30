@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 struct Solution {}
 enum Parenthese {
     Left,
@@ -27,7 +28,8 @@ impl Parenthese {
 }
 
 impl Solution {
-    pub fn longest_valid_parentheses(s: String) -> i32 {
+    // My solution, 8ms, defeat
+    pub fn longest_valid_parentheses_mine(s: String) -> i32 {
         let mut parentheses = vec![];
         for c in s.chars() {
             let l = parentheses.len();
@@ -83,6 +85,41 @@ impl Solution {
             if l > max {
                 max = l;
             }
+        }
+        max
+    }
+
+    // 0ms
+    pub fn longest_valid_parentheses(s: String) -> i32 {
+        let dat = s.as_bytes();
+        let mut lefts: Vec<i32> = vec![];
+        let mut max = 0;
+        let mut i = 0;
+        let mut last = -1;
+        for c in dat {
+            if *c == b'(' {
+                lefts.push(i);
+                i += 1;
+                continue;
+            }
+            if lefts.len() == 0 {
+                last = i;
+                i += 1;
+                continue;
+            }
+            lefts.pop();
+            if lefts.len() == 0 {
+                let v = i - last;
+                if v > max {
+                    max = v;
+                }
+            } else {
+                let v = i - *lefts.last().unwrap();
+                if v > max {
+                    max = v;
+                }
+            }
+            i += 1;
         }
         max
     }
