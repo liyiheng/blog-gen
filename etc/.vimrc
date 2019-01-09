@@ -1,47 +1,15 @@
+
+set clipboard+=unnamedplus
 set nocompatible              " be iMproved, required
 filetype off                  " required
 syntax on
 set number                      " Show line numbers
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-"Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'racer-rust/vim-racer'
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" ------------------ DOC ------------------------
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -52,12 +20,31 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'https://github.com/tpope/vim-fugitive.git'
+Plugin 'racer-rust/vim-racer'
+Plugin 'rust-lang/rust.vim'
+Plugin 'fatih/vim-go'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'elixir-editors/vim-elixir'
+Plugin 'slashmili/alchemist.vim'
+"Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-airline/vim-airline'
+Plugin 'python-mode/python-mode', { 'branch': 'develop' }
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:airline_powerline_fonts = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-"let g:go_metalinter_autosave = 1
-"let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 
-
+"let g:ycm_rust_src_path = '/home/liyiheng/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -69,6 +56,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = ['golint','govet']
 "let g:syntastic_go_go_args = "vet"
+
+let g:rustfmt_autosave = 1
+let g:pymode_python = 'python3'
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
