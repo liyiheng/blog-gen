@@ -40,6 +40,4 @@ impl Solution {
 }
 
 struct Solution;
-fn main() {
-    println!("{:?}", Solution::merge());
-}
+fn main() {}
