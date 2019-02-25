@@ -1,7 +1,7 @@
 ---
 date: 2017-03-27
 title: "Android handler机制简陋描述(golang)"
-draft: false
+draft: true
 categories:
   - Android
 tags:

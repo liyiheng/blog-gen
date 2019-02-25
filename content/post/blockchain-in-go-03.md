@@ -1,7 +1,7 @@
 ---
 date: 2017-09-28
 title: "[译]用go进行区块链开发3:持久化与CLI"
-draft: false
+draft: true
 categories:
   - golang
   - blockchain

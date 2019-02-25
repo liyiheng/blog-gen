@@ -1,7 +1,7 @@
 ---
 date: 2017-09-22
 title: "[译]用go进行区块链开发2:工作量证明"
-draft: false
+draft: true
 categories:
   - golang
   - blockchain

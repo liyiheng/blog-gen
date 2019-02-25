@@ -15,12 +15,13 @@
 baseurl = "https://xanthusl.github.io/blog/"
 languageCode = "zh-cn"
 title = "Blog just for fun"
-theme = "hugo-tranquilpeak-theme"
-#disqusShortname = "hugo-tranquilpeak-theme"
-# googleAnalytics = "UA-123-45"
+theme = "beautifulhugo"
+#theme = "hugo-tranquilpeak-theme"
 paginate = 7
 canonifyurls = true
 defaultContentLanguage = "zh-cn"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [permalinks]
   post = "/:year/:month/:slug/"

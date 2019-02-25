@@ -1,7 +1,7 @@
 ---
 date: 2017-09-21
 title: "[译]用go进行区块链开发1:基本原型"
-draft: false
+draft: true
 categories:
   - golang
   - blockchain

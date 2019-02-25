@@ -1,7 +1,7 @@
 ---
 date: 2017-03-09
 title: "实现即刻列表中视频封面滚动效果的尝试"
-draft: false
+draft: true
 categories:
   - Android
 tags:
