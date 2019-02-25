@@ -1,7 +1,7 @@
 ---
 date: 2017-08-28
 title: "[译]我的go语言使用场景"
-draft: false
+draft: true
 categories:
   - golang
 tags:
