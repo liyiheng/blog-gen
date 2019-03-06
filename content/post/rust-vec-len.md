@@ -35,3 +35,10 @@ println!("v:{}", v[2]);// SIGSEGV, 段错误
  unsafe { v.set_len(3); }
  println!("v:{}", v[2]);  // v:0
 ```
+## Unfase有风险
+
+不用`set_len`方法的话可以用`from_elem`创建：
+```rust
+// let v = vec![0;10];
+let v = std::vec::from_elem(0, 10);
+```
