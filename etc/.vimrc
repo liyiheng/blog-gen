@@ -7,9 +7,6 @@ set foldnestmax=1
 set number                      " Show line numbers
 
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp^="/home/liyiheng/.opam/default/share/ocp-indent/vim"
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
 call vundle#begin()
 
@@ -35,7 +32,7 @@ filetype plugin indent on    " required
 let g:airline_powerline_fonts = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-
+let g:go_addtags_transform = "camelcase"
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -58,3 +55,4 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
