@@ -3,6 +3,7 @@
 本想记录一些，用hugo生成[静态博客](https://github.com/XanthusL/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
 
+- [Actix-web中间件、handler间传递数据](content/post/pass_value_through_middlewares.md)
 - [从“unsafe”看数据结构对齐](content/post/memory_align.md)
 - [记一次被黑](content/post/hacked_by_miner.md)
 - [Rust生成词云(改进空白区域查找算法)](https://github.com/XanthusL/wordcloud/tree/master/wordcloud-rs)
