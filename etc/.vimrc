@@ -3,7 +3,7 @@ filetype off                  " required
 set clipboard+=unnamedplus
 set nocompatible              " be iMproved, required
 set foldmethod=syntax
-set foldnestmax=1
+set foldnestmax=2
 set number                      " Show line numbers
 
 set rtp+=~/.vim/bundle/Vundle.vim
