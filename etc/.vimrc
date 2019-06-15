@@ -5,6 +5,7 @@ set nocompatible              " be iMproved, required
 set foldmethod=syntax
 set foldnestmax=2
 set number                      " Show line numbers
+"set colorcolumn=81
 
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -21,11 +22,12 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 "Plugin 'majutsushi/tagbar'
-Plugin 'elixir-editors/vim-elixir'
-Plugin 'slashmili/alchemist.vim'
+"Plugin 'elixir-editors/vim-elixir'
+"Plugin 'slashmili/alchemist.vim'
 "Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'python-mode/python-mode', { 'branch': 'develop' }
+Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next'}
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -44,15 +46,27 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_go_checkers = ['govet','golint']
 let g:syntastic_ocaml_checkers = ['merlin']
+let g:syntastic_java_checkers = ['checkstyle']
 
 let g:rustfmt_autosave = 1
 let g:pymode_python = 'python3'
 
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['/usr/local/bin/pyls']
+    \ }
+
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
-au FileType rust nmap gd <Plug>(rust-def)
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+"au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
 
