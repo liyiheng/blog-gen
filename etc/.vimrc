@@ -20,7 +20,10 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'fatih/vim-go'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+"Plugin 'vim-syntastic/syntastic'
 "Plugin 'majutsushi/tagbar'
 "Plugin 'elixir-editors/vim-elixir'
 "Plugin 'slashmili/alchemist.vim'
@@ -36,24 +39,38 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_addtags_transform = "camelcase"
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" <tab> used by YCM
+"let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_go_checkers = ['govet','golint']
-let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_java_checkers = ['checkstyle']
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_go_checkers = ['govet','golint']
+"let g:syntastic_go_checkers = []
+"let g:syntastic_ocaml_checkers = ['merlin']
+"let g:syntastic_java_checkers = ['checkstyle']
+let g:ale_open_list = 1
+let g:ale_linters={
+\ 'go':['govet','golint'],
+\ 'java':[],
+\ 'python':[],
+\}
 
 let g:rustfmt_autosave = 1
 let g:pymode_python = 'python3'
+let g:pymode_indent = 1
 
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/local/bin/pyls']
+    \ 'python': ['/usr/bin/pyls']
     \ }
 
 nmap <F8> :TagbarToggle<CR>
@@ -63,6 +80,7 @@ nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
 
 "au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
