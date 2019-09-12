@@ -1,37 +1,34 @@
 syntax on
-filetype off                  " required
+filetype off           
 set clipboard+=unnamedplus
-set nocompatible              " be iMproved, required
+set nocompatible
 set foldmethod=syntax
 set foldnestmax=2
-set number                      " Show line numbers
+set number
 "set colorcolumn=81
 
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-Plugin 'https://github.com/tpope/vim-fugitive.git'
-Plugin 'racer-rust/vim-racer'
-Plugin 'rust-lang/rust.vim'
-Plugin 'fatih/vim-go'
-Plugin 'wakatime/vim-wakatime'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'w0rp/ale'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-"Plugin 'vim-syntastic/syntastic'
-"Plugin 'majutsushi/tagbar'
-"Plugin 'elixir-editors/vim-elixir'
-"Plugin 'slashmili/alchemist.vim'
-"Plugin 'ryanoasis/vim-devicons'
-Plugin 'vim-airline/vim-airline'
-Plugin 'python-mode/python-mode', { 'branch': 'develop' }
-Plugin 'autozimu/LanguageClient-neovim', { 'branch': 'next'}
-call vundle#end()            " required
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+Plug 'wakatime/vim-wakatime'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0rp/ale'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'vim-airline/vim-airline'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+"Plug 'VundleVim/Vundle.vim'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'majutsushi/tagbar'
+"Plug 'elixir-editors/vim-elixir'
+"Plug 'slashmili/alchemist.vim'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next'}
+call plug#end()
 filetype plugin indent on    " required
 
 let g:airline_powerline_fonts = 1
@@ -41,10 +38,10 @@ let g:go_addtags_transform = "camelcase"
 
 " <tab> used by YCM
 "let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsExpandTrigger="<c-x>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsExpandTrigger="<c-x>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsEditSplit="vertical"
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -68,23 +65,24 @@ let g:rustfmt_autosave = 1
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 
+"\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'python': ['/usr/bin/pyls']
     \ }
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
-
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
 
 "au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
+augroup CloseLoclistWindowGroup
+  autocmd!
+  autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
