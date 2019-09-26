@@ -36,9 +36,9 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_addtags_transform = "camelcase"
 
-" <tab> used by YCM
+" <tab> used by coc.nvim
 "let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsExpandTrigger="<c-x>"
+let g:UltiSnipsExpandTrigger="<c-x>"
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "let g:UltiSnipsEditSplit="vertical"
@@ -72,6 +72,11 @@ let g:LanguageClient_serverCommands = {
     \ }
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
