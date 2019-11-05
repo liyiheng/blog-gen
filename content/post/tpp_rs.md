@@ -9,7 +9,7 @@ tags:
 ---
 
 [Tpp(text presentation program)](https://github.com/cbbrowne/tpp)是个有趣的命令行程序，用于在终端中展示信息。基于`ncurses`，用Ruby实现。这里将尝试用Rust实现它的基本功能。<br>
-项目地址：https://github.com/XanthusL/tpp-rs
+项目地址：https://github.com/liyiheng/tpp-rs
 
 <!--more-->
 ### 缘由

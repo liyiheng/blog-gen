@@ -21,7 +21,7 @@ http是无状态协议，即时通讯？还是xmpp或者直接怼tcp吧（qq似�
 
 前段时间了解到了WebSocket，在看build-web-application-with-golang的时候发现谢大在书中对WebSocket有了详细的讲解，我就不再搬了，感兴趣的同学点击[传送门](https://github.com/astaxie/build-web-application-with-golang "build-web-application-with-golang")即可。</br>
 看完手痒，不妨动手撸一个简易（简陋）的web聊天室。</br>
-以下是实现过程。有意见欢迎[提issue](https://github.com/XanthusL/blog-gen/issues "issues")；有建议欢迎[提issue](https://github.com/XanthusL/blog-gen/issues "issues")；想喷我欢迎[提issue](https://github.com/XanthusL/blog-gen/issues "issues")；想砍我欢迎[提issue](https://github.com/XanthusL/blog-gen/issues "issues")
+以下是实现过程。有意见欢迎[提issue](https://github.com/liyiheng/blog-gen/issues "issues")；有建议欢迎[提issue](https://github.com/liyiheng/blog-gen/issues "issues")；想喷我欢迎[提issue](https://github.com/liyiheng/blog-gen/issues "issues")；想砍我欢迎[提issue](https://github.com/liyiheng/blog-gen/issues "issues")
 
 -------------------------------------------------------------
 
@@ -175,7 +175,7 @@ go run main.go
 ```
 浏览器打开http://localhost:1234/ 就可以看到一个简(简)洁(陋)美(至)观(极)的聊天页面了</br>
 在其他设备同时打开该地址(注意改ip)，多个设备之间就可以实现即时通讯了</br>
-[详细代码地址](https://github.com/XanthusL/blog-gen/tree/master/code/archive/websocket-demo "WebSocket-demo")
+[详细代码地址](https://github.com/liyiheng/blog-gen/tree/master/code/archive/websocket-demo "WebSocket-demo")
 
 
 

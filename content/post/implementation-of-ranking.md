@@ -35,5 +35,5 @@ tags:
 
 ### 大招
 Redis处理zset用的是一个特殊的跳表，不妨自己实现一个一模一样的。<br>
-然而 ~~不会~~ 嫌麻烦。既然Redis是开源的，[照搬过来](https://github.com/XanthusL/zset)就好了。<br>
+然而 ~~不会~~ 嫌麻烦。既然Redis是开源的，[照搬过来](https://github.com/liyiheng/zset)就好了。<br>
 还没搬完，只是简单实现了几个基本的需求，欢迎PR

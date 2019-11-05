@@ -128,4 +128,4 @@ Start Signal Hooker!
 为什么不用`flag`包？<br>
 为什么不顺便吧端口号也写成可指定的？<br>
 
->因为够(tài)用(lǎn)了,觉得不够用请提PR或[issue](https://github.com/XanthusL/blog-gen/issues)
+>因为够(tài)用(lǎn)了,觉得不够用请提PR或[issue](https://github.com/liyiheng/blog-gen/issues)

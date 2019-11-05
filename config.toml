@@ -12,9 +12,9 @@
 # For developpers, if you modify this theme, put your images in `source/images` folder and
 # use grunt task `build` to synchronize assets
 
-baseurl = "https://xanthusl.github.io/blog/"
+baseurl = "https://liyiheng.github.io/blog/"
 languageCode = "zh-cn"
-title = "Blog just for fun"
+title = "(≧▽≦)"
 theme = "beautifulhugo"
 #theme = "hugo-tranquilpeak-theme"
 paginate = 7
@@ -82,7 +82,7 @@ pygmentsUseClasses = true
   identifier = "github"
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/XanthusL"
+  url = "https://github.com/liyiheng"
 #[[menu.links]]
 #  weight = 1
 #  identifier = "stackoverflow"
@@ -201,4 +201,4 @@ pygmentsUseClasses = true
     url = "/#about"
   # Customize copyright value "© 2016 <CUSTOMIZATION>. All Rights Reserved"
   # [params.footer]
-  #   copyright = "<a href=\"https://github.com/XanthusL\">liyiheng</a>"
+  #   copyright = "<a href=\"https://github.com/liyiheng\">liyiheng</a>"

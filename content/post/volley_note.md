@@ -14,7 +14,7 @@ thumbnailImagePosition: left
 
 虽然更倾向于retrofit + okhttp，但目前的项目中还在用Volley，从学习的角度扒一扒[Volley的源码](https://github.com/google/volley)吧
 
-主要是分析Volley的部分实现，不再涉及[具体使用和二次封装](https://github.com/XanthusL/EasyVolley)
+主要是分析Volley的部分实现，不再涉及[具体使用和二次封装](https://github.com/liyiheng/EasyVolley)
  
 <!--more-->
  
