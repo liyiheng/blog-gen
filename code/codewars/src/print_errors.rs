@@ -1,10 +1,5 @@
 fn printer_error(s: &str) -> String {
-    let mut n = 0;
-    s.chars().for_each(|c| {
-        if c < 'a' || c > 'm' {
-            n += 1;
-        }
-    });
+    let n = s.chars().filter(|c| *c < 'a' || *c > 'm').count();
     format!("{}/{}", n, s.len())
 }
 
