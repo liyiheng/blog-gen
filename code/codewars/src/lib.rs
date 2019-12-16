@@ -11,6 +11,8 @@ mod number_of_trailing_zeros_of_n_bang;
 mod persistent_bugger;
 mod playing_with_digits;
 mod print_errors;
+mod probabilityies_for_sums_in_rolling_cubic_dice;
+mod recover_a_secret_string_from_random_triplets;
 mod remove_string_spaces;
 mod rgb_to_hex;
 mod tortoise_racing;
