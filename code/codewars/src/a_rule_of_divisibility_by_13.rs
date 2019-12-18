@@ -24,19 +24,13 @@ fn go(mut n: i64, prev: i64) -> i64 {
 fn thirt(n: i64) -> i64 {
     go(n, 0)
 }
+fn testequal(n: i64, exp: i64) -> () {
+    assert_eq!(exp, thirt(n))
+}
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    fn testequal(n: i64, exp: i64) -> () {
-        assert_eq!(exp, thirt(n))
-    }
-
-    #[test]
-    fn basics_thirt() {
-        testequal(8529, 79);
-        testequal(85299258, 31);
-        testequal(5634, 57);
-    }
+//#[test]
+fn basics_thirt() {
+    testequal(8529, 79);
+    testequal(85299258, 31);
+    testequal(5634, 57);
 }

@@ -2,6 +2,8 @@
 mod a_rule_of_divisibility_by_13;
 mod array_diff;
 mod categorize_new_member;
+mod directions_reduction;
+mod esolang_interpreters;
 mod find_the_missing_letter;
 mod get_the_middle_character;
 mod going_to_zero_or_infinity;
@@ -15,5 +17,7 @@ mod probabilityies_for_sums_in_rolling_cubic_dice;
 mod recover_a_secret_string_from_random_triplets;
 mod remove_string_spaces;
 mod rgb_to_hex;
+mod strings_mix;
+mod sum_by_factors;
 mod tortoise_racing;
 mod two_to_one;

@@ -10,7 +10,7 @@ fn race(v1: i32, v2: i32, g: i32) -> Option<Vec<i32>> {
     return Some(vec![hour, min, seconds]);
 }
 
-#[test]
+//#[test]
 fn basic_tests() {
     assert_eq!(race(720, 850, 70), Some(vec![0, 32, 18]));
     assert_eq!(race(80, 100, 40), Some(vec![2, 0, 0]));

@@ -29,7 +29,7 @@ fn zeros(n: u64) -> u64 {
     }
 }
 
-#[test]
+//#[test]
 fn sample_tests() {
     assert_eq!(zeros(0), 0);
     assert_eq!(zeros(6), 1);
