@@ -62,6 +62,7 @@ let g:ale_linters={
 \}
 
 let g:rustfmt_autosave = 1
+let g:rustfmt_options = '--edition 2018'
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 
