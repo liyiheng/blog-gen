@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 mod a_rule_of_divisibility_by_13;
+mod algebraic_lists;
 mod array_diff;
 mod categorize_new_member;
 mod directions_reduction;
