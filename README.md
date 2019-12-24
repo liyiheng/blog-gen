@@ -31,7 +31,6 @@
 ---
 #### [Leetcode](https://github.com/liyiheng/blog-gen/tree/master/code/leetcode/src/bin)
 #### [收藏的](https://github.com/liyiheng/browser-bookmarks)
-<a href="https://www.vultr.com/?ref=7352012"><img src="https://www.vultr.com/media/banner_2.png" width="468" height="60"></a>
 ---
 
 ### XMR 
