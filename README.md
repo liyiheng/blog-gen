@@ -26,8 +26,6 @@
 - [git笔记(reflog)](content/post/git-note-reflog.md)
 - [[译]Golang中JSON和结构体的组合使用](content/post/json_composition.md)
 - [定时任务高效触发](code/mylib/wheel_timer.go)
-- [Volley学习笔记](content/post/volley_note.md)
-- [Java中单例模式几种常见的实现](content/post/java_singleton.md)
 - [Shell资料整理](content/post/shell.md)
 ---
 #### [Leetcode](https://github.com/liyiheng/blog-gen/tree/master/code/leetcode/src/bin)
