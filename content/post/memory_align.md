@@ -91,11 +91,11 @@ fn main() {
 
 ### 结论
 
-1. `unsafe`可行
-2. `unsafe`限制多、风险大
-3. 远离`unsafe`
-4. 远离`unsafe`
-5. 远离`unsafe`
+1. `unsafe`灵活、强大
+2. `unsafe`有风险
+3. 慎用`unsafe`
+4. 慎用`unsafe`
+5. 慎用`unsafe`
 
 
 
