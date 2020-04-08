@@ -10,8 +10,8 @@ set number
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
+"Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -20,7 +20,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
-"Plug 'VundleVim/Vundle.vim'
+Plug 'hotoo/pangu.vim'
+
 "Plug 'vim-syntastic/syntastic'
 "Plug 'majutsushi/tagbar'
 "Plug 'elixir-editors/vim-elixir'
@@ -67,10 +68,34 @@ let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 
 "\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'python': ['/usr/bin/pyls']
-    \ }
+"\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"let g:LanguageClient_serverCommands = {
+"    \ 'python': ['/usr/bin/pyls']
+"    \ }
+
+call coc#config('languageserver', {
+		\ 'ccls': {
+		\   "command": "ccls",
+		\   "trace.server": "verbose",
+		\   "filetypes": ["c", "cpp"]
+		\ },
+		\ 'rust': {
+		\   "command": "rust-analyzer",
+		\   "filetypes": ["rust"],
+		\   "rootPatterns": ["Cargo.toml"]
+		\ },
+		\ "golang": {
+		\   "command": "gopls",
+		\   "rootPatterns": ["go.mod"],
+		\   "filetypes": ["go"]
+		\ }
+		\})
+
+call coc#config('coc.preferences.formatOnSaveFiletypes', ["rust"])
+call coc#config('python.pythonPath', '/home/liyiheng/Downloads/work/miniconda3/bin/python')
+call coc#config('rust.rustfmt_path', '/home/liyiheng/.cargo/bin/rustfmt')
+call coc#config('diagnostic.displayByAle', 'true')
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
