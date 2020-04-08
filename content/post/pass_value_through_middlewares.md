@@ -1,17 +1,17 @@
 ---
 date: 2019-04-28
-title: "Actix-web中间件、handler间传递数据"
+title: "Actix-web 中间件、handler 间传递数据"
 categories:
   - rust
 tags:
   - rust
 ---
 
-背景：中间件A产生的数据，需在后续的其他中间件、Handler中用到。<br>
-例如: Handler中使用`Auth`中间件从token中解出的`user_id`。
+背景：中间件 A 产生的数据，需在后续的其他中间件、Handler 中用到。<br>
+例如：Handler 中使用 `Auth` 中间件从 token 中解出的 `user_id`。
 
 <!--more-->
-在golang的gin框架中很容易实现：
+在 golang 的 gin 框架中很容易实现：
 
 ```go
 func Auth(ctx *gin.Context){
@@ -26,10 +26,10 @@ func Foo(ctx *gin.Context){
 ```
 Gin 的中间件与普通 handler 的类型相同，核心都是 `gin.Context`
 
-Rust的`actix-web`中没有上下文的概念，其中间件形式为：
+Rust 的 `actix-web` 中没有上下文的概念，其中间件形式为：
 ```rust
 pub trait Middleware<S>: 'static {
-    
+
     fn start(&self, req: &HttpRequest<S>) -> Result<Started> {
         Ok(Started::Done)
     }
@@ -43,7 +43,7 @@ pub trait Middleware<S>: 'static {
     }
 }
 ```
-Handler则是：
+Handler 则是：
 ```rust
 pub fn index(req: &HttpRequest) -> Box<Future<Item = HttpResponse, Error = Error>> {
 	// ...
@@ -59,11 +59,11 @@ Actix-web 的状态由一个 `app` 所有路由共享，并不是以请求为单
 
 ### 2. Session
 
-`SessionStorage`中间件提供会话管理解决方案，默认只有Cookie作为会话存储的实现。
+`SessionStorage` 中间件提供会话管理解决方案，默认只有 Cookie 作为会话存储的实现。
 
 ### 3. Extensions
 
-通过文档了解到`extensions`。<br>
+通过文档了解到 `extensions`。<br>
 用法如下：
 ```rust
 impl<T> middleware::Middleware<T> for Auth {
@@ -80,7 +80,7 @@ pub fn index(req: &HttpRequest) -> Box<Future<Item = HttpResponse, Error = Error
 }
 ```
 
-Extensions大致实现:
+Extensions 大致实现：
 ```rust
 type AnyMap = HashMap<TypeId, Box<Any>, BuildHasherDefault<IdHasher>>;
 
@@ -93,9 +93,9 @@ pub struct Extensions {
 
 ### 结论
 
-目前来看，`actix-web`的`extensions`最符合需求，但具体实现不同与go的`map[string]interface{}`,
-而是`Map<TypeId, Box<Any>>`，因此无法直接存放相同类型的多个值。传递的值较多、类型有重复时，
-需要创建相应的类型来“打包”。
+目前来看，`actix-web` 的 `extensions` 最符合需求，但具体实现不同与 go 的 `map[string]interface{}`,
+而是 `Map<TypeId, Box<Any>>` ，因此无法直接存放相同类型的多个值。传递的值较多、类型有重复时，
+需要创建相应的类型来「打包」。
 
 
 
