@@ -7,11 +7,16 @@ set foldnestmax=2
 set number
 "set colorcolumn=81
 
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/scrooloose/nerdtree.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-"Plug 'racer-rust/vim-racer'
-"Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 Plug 'wakatime/vim-wakatime'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -22,6 +27,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'hotoo/pangu.vim'
 
+"Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'majutsushi/tagbar'
 "Plug 'elixir-editors/vim-elixir'
@@ -30,7 +37,8 @@ Plug 'hotoo/pangu.vim'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next'}
 call plug#end()
-filetype plugin indent on    " required
+
+filetype plugin indent on
 
 let g:airline_powerline_fonts = 1
 let g:go_fmt_command = "goimports"
@@ -67,11 +75,6 @@ let g:rustfmt_options = '--edition 2018'
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 
-"\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"\ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-"let g:LanguageClient_serverCommands = {
-"    \ 'python': ['/usr/bin/pyls']
-"    \ }
 
 call coc#config('languageserver', {
 		\ 'ccls': {
