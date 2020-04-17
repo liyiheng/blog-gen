@@ -1,33 +1,27 @@
 impl Solution {
     pub fn combination_sum(mut candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
         candidates.sort();
-        use std::collections::HashSet;
-        let mut all = HashSet::new();
-        Solution::step(vec![], &candidates, target, &mut all);
-        all.into_iter().collect()
+        let mut all = Solution::step(&candidates, target);
+        for v in all.iter_mut() {
+            v.sort();
+        }
+        all
     }
-    pub fn step(
-        cur: Vec<i32>,
-        candidates: &[i32],
-        target: i32,
-        all: &mut std::collections::HashSet<Vec<i32>>,
-    ) {
-        if target == 0 {
-            return;
-        }
-        for i in candidates.iter() {
-            if *i > target {
-                break;
+    pub fn step(candidates: &[i32], target: i32) -> Vec<Vec<i32>> {
+        let mut all = vec![];
+        for (i, &c) in candidates.iter().take_while(|c| **c <= target).enumerate() {
+            if c == target {
+                all.push(vec![c]);
+                continue;
             }
-            let mut c = cur.clone();
-            c.push(*i);
-            if *i == target {
-                c.sort();
-                all.insert(c);
-            } else {
-                Solution::step(c, candidates, target - i, all);
+            let partial = Solution::step(&candidates[i..], target - c);
+            for v in partial.into_iter() {
+                let mut v = v.clone();
+                v.push(c);
+                all.push(v);
             }
         }
+        all
     }
 }
 
