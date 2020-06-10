@@ -1,6 +1,6 @@
 ---
 date: 2017-11-06
-title: "[golang小工具]静态文件服务器"
+title: "[golang 小工具]静态文件服务器"
 draft: false
 categories:
   - golang
@@ -12,18 +12,18 @@ tags:
 
 
 把电脑上的文件传到手机上，或者传给其他电脑，这是再常见不过的事了。<br>
-这种情况通常是用PC端的qq或微信给手机发送文件。<br>
-不过对Linux用户来说，wine上的qq多少有些不靠谱，web微信在传输大文件时也经常出问题。<br>
+这种情况通常是用 PC 端的 qq 或微信给手机发送文件。<br>
+不过对 Linux 用户来说，wine 上的 qq 多少有些不靠谱，web微信在传输大文件时也经常出问题。<br>
 
 <!--more-->
 顺便安利一下[electronic-wechat](https://github.com/geeeeeeeeek/electronic-wechat)。<br>
-另外，无论是qq还是微信，手机接收后的文件都藏的比较深（tencent/MicroMsg/file_recv?），要是在Downloads下多好。
+另外，无论是 qq 还是微信，手机接收后的文件都藏的比较深（tencent/MicroMsg/file_recv?），要是在 Downloads 下多好。
  
 
 不妨自己写个静态文件服务器，用手机浏览器下载文件<br><br>
 
 ### 0x0000
-用golang写这种东西太简单了
+用 golang 写这种东西太简单了
 ```golang
 func main() {
         http.Handle("/", http.FileServer(http.Dir("./")))
@@ -33,7 +33,7 @@ func main() {
         }
 }
 ```
-关键代码就2行
+关键代码就 2 行
 
 ### 0x0001
 用了几次后觉得不爽，要分享哪个目录就得把程序移到该目录下再执行；而且端口是写死的。于是：
@@ -51,14 +51,14 @@ func main() {
         }
 }
 ```
-这样的话，只需要把编译好的程序放到$PATH任意目录，用的时候:
+这样的话，只需要把编译好的程序放到 $PATH 任意目录，用的时候:
 ```sh
 file-server path/to/share
 ```
 
 ### 0x0002
 似乎好多了，不过还有一个尴尬的问题。IP ！<br>
-把本机IP打印出来岂不更好<br>
+把本机 IP 打印出来岂不更好<br>
 最终版本:
 ```golang
 //usr/bin/env go run "$0" "$@"; exit "$?"
@@ -129,3 +129,8 @@ Start Signal Hooker!
 为什么不顺便吧端口号也写成可指定的？<br>
 
 >因为够(tài)用(lǎn)了,觉得不够用请提PR或[issue](https://github.com/liyiheng/blog-gen/issues)
+
+
+### 2020-06-10 更新
+
+发现了功能丰富的 [simple-http-server](https://github.com/TheWaWaR/simple-http-server)
