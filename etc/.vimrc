@@ -41,9 +41,11 @@ call plug#end()
 filetype plugin indent on
 
 let g:airline_powerline_fonts = 1
+let g:go_gopls_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_addtags_transform = "camelcase"
+let g:coc_channel_timeout = 3
 
 " <tab> used by coc.nvim
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -63,7 +65,7 @@ let g:UltiSnipsExpandTrigger="<c-x>"
 "let g:syntastic_go_checkers = []
 "let g:syntastic_ocaml_checkers = ['merlin']
 "let g:syntastic_java_checkers = ['checkstyle']
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:ale_linters={
 \ 'go':['govet','golint'],
 \ 'java':[],
@@ -82,12 +84,7 @@ call coc#config('languageserver', {
 		\   "trace.server": "verbose",
 		\   "filetypes": ["c", "cpp"]
 		\ },
-		\ 'rust': {
-		\   "command": "rust-analyzer",
-		\   "filetypes": ["rust"],
-		\   "rootPatterns": ["Cargo.toml"]
-		\ },
-		\ "golang": {
+		\ "_golang": {
 		\   "command": "gopls",
 		\   "rootPatterns": ["go.mod"],
 		\   "filetypes": ["go"]
@@ -95,8 +92,10 @@ call coc#config('languageserver', {
 		\})
 
 call coc#config('coc.preferences.formatOnSaveFiletypes', ["rust"])
-call coc#config('python.pythonPath', '/home/liyiheng/Downloads/work/miniconda3/bin/python')
+call coc#config('coc.preferences.rootPatterns', ["Cargo.toml"])
+"call coc#config('python.pythonPath', '/home/liyiheng/Downloads/work/miniconda3/bin/python')
 call coc#config('rust.rustfmt_path', '/home/liyiheng/.cargo/bin/rustfmt')
+call coc#config('rust-analyzer.serverPath', '/home/liyiheng/.cargo/bin/rust-analyzer')
 call coc#config('diagnostic.displayByAle', 'true')
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
