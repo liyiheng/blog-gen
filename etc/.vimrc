@@ -42,6 +42,7 @@ filetype plugin indent on
 
 let g:airline_powerline_fonts = 1
 let g:go_gopls_enabled = 0
+let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_addtags_transform = "camelcase"
@@ -84,7 +85,7 @@ call coc#config('languageserver', {
 		\   "trace.server": "verbose",
 		\   "filetypes": ["c", "cpp"]
 		\ },
-		\ "_golang": {
+		\ "golang": {
 		\   "command": "gopls",
 		\   "rootPatterns": ["go.mod"],
 		\   "filetypes": ["go"]
