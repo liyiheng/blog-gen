@@ -26,6 +26,7 @@ Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'hotoo/pangu.vim'
+Plug 'preservim/nerdcommenter'
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
@@ -47,6 +48,8 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_addtags_transform = "camelcase"
 let g:coc_channel_timeout = 3
+let g:NERDCustomDelimiters = { 'go': { 'left': '//' } }
+let g:NERDSpaceDelims = 1
 
 " <tab> used by coc.nvim
 "let g:UltiSnipsExpandTrigger="<tab>"
