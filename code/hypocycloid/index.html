@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hypocycloid</title>
+    <script>
+    function refresh(){
+        var o = document.getElementById('outer_r').value;
+        var i = document.getElementById('inner_r').value;
+        var d = document.getElementById('dist').value;
+        var s = document.getElementById('square_size').value;
+        var r = document.getElementById('red').value;
+        var g = document.getElementById('green').value;
+        var b = document.getElementById('blue').value;
+        var src = `/draw?outer_r=${o}&inner_r=${i}&dist=${d}&square_size=${s}&r=${r}&g=${g}&b=${b}`;
+        document.getElementById('image').src = src;
+    }
+
+
+    </script>
+</head>
+<body>
+大圆半径: <input type="number" id="outer_r" value="100"><br>
+小圆半径: <input type="number" id="inner_r" value="8"><br>
+绘制点到小圆圆心距离: <input type="number" id="dist" value="60"><br>
+画布边长: <input type="number" id="square_size" value="360"><br>
+R: <input type="number" id="red" value="0"><br>
+G: <input type="number" id="green" value="255"><br>
+B: <input type="number" id="blue" value="0"><br>
+<input type="button" value="提交" onclick="refresh()">
+<img src="/draw?outer_r=100&inner_r=8&dist=60&square_size=360&r=20&g=250&b=0" id="image"/>
+</body>
+</html>
