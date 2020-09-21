@@ -26,7 +26,7 @@ Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'hotoo/pangu.vim'
-Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter' 
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
@@ -42,7 +42,8 @@ call plug#end()
 filetype plugin indent on
 
 let g:airline_powerline_fonts = 1
-let g:go_gopls_enabled = 0
+let g:go_gopls_enabled = 1
+let g:go_gopls_options = ['-remote=auto']
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
@@ -86,10 +87,12 @@ call coc#config('languageserver', {
 		\ 'ccls': {
 		\   "command": "ccls",
 		\   "trace.server": "verbose",
+		\   "rootPatterns": ["CMakeLists.txt"],
 		\   "filetypes": ["c", "cpp"]
 		\ },
 		\ "golang": {
 		\   "command": "gopls",
+		\   "args": ["-remote=auto"],
 		\   "rootPatterns": ["go.mod"],
 		\   "filetypes": ["go"]
 		\ }
@@ -97,7 +100,7 @@ call coc#config('languageserver', {
 
 call coc#config('coc.preferences.formatOnSaveFiletypes', ["rust"])
 call coc#config('coc.preferences.rootPatterns', ["Cargo.toml"])
-"call coc#config('python.pythonPath', '/home/liyiheng/Downloads/work/miniconda3/bin/python')
+call coc#config('python.pythonPath', '/home/liyiheng/Downloads/work/miniconda3/bin/python')
 call coc#config('rust.rustfmt_path', '/home/liyiheng/.cargo/bin/rustfmt')
 call coc#config('rust-analyzer.serverPath', '/home/liyiheng/.cargo/bin/rust-analyzer')
 call coc#config('diagnostic.displayByAle', 'true')
