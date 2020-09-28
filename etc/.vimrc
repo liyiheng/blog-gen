@@ -6,6 +6,8 @@ set foldmethod=syntax
 set foldnestmax=2
 set number
 "set colorcolumn=81
+"set cuc
+"set cul
 
 
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -27,6 +29,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'hotoo/pangu.vim'
 Plug 'preservim/nerdcommenter' 
+Plug 'wfxr/minimap.vim'
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
