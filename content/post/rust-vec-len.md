@@ -13,7 +13,7 @@ println!("{}", v[2]);// index out of bounds
 ```
 <!--more-->
 
-## `set_len()`方法
+### Unsafe 的 `set_len()`
 
 ```rust
 let mut v: Vec<i32> = Vec::new();
@@ -28,17 +28,20 @@ println!("v:{}", v[2]);// SIGSEGV, 段错误
     /// modifying its buffers, so it is up to the caller to ensure that the
     /// vector is actually the specified size.
 ```
-## 所以
+因此实用 `set_len` 需要确保容量
 
 ```rust
  let mut v: Vec<i32> = Vec::with_capacity(3);
  unsafe { v.set_len(3); }
  println!("v:{}", v[2]);  // v:0
 ```
-## Unfase有风险
 
-不用`set_len`方法的话可以用`from_elem`创建：
+### 通过 `vec!` 宏创建
 ```rust
-// let v = vec![0;10];
+let v = vec![0;10];
+```
+
+### 通过 `std::vec::from_elem` 创建
+```rust
 let v = std::vec::from_elem(0, 10);
 ```
