@@ -3,6 +3,7 @@
 本想记录一些，用hugo生成[静态博客](https://github.com/liyiheng/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
 
+- [RAII: Rust 模拟 golang 中的 defer](content/post/rust_raii_defer.md)
 - [io\_uring 初探](content/post/io_uring.md)
 - [6.824 Lab2 总结](content/post/lab2_review.md)
 - [Actix-web中间件、handler间传递数据](content/post/pass_value_through_middlewares.md)
