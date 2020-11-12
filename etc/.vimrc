@@ -31,6 +31,7 @@ Plug 'hotoo/pangu.vim'
 Plug 'preservim/nerdcommenter' 
 Plug 'wfxr/minimap.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'easymotion/vim-easymotion'
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
