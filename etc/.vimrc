@@ -32,6 +32,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'wfxr/minimap.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'easymotion/vim-easymotion'
+Plug 'liuchengxu/vista.vim'
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
@@ -44,6 +45,7 @@ call plug#end()
 
 filetype plugin indent on
 
+let g:vista#renderer#enable_icon = 0
 let g:airline_powerline_fonts = 1
 let g:go_gopls_enabled = 0
 let g:go_gopls_options = ['-remote=auto']
