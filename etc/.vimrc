@@ -1,6 +1,7 @@
 syntax on
 filetype off           
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
+set background=dark
 set nocompatible
 set foldmethod=syntax
 set foldnestmax=2
@@ -32,12 +33,11 @@ Plug 'preservim/nerdcommenter'
 Plug 'wfxr/minimap.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'easymotion/vim-easymotion'
-Plug 'liuchengxu/vista.vim'
 
 "Plug 'rust-lang/rust.vim'
 "Plug 'racer-rust/vim-racer'
 "Plug 'vim-syntastic/syntastic'
-"Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 "Plug 'elixir-editors/vim-elixir'
 "Plug 'ryanoasis/vim-devicons'
 "Plug 'Valloric/YouCompleteMe'
@@ -45,7 +45,6 @@ call plug#end()
 
 filetype plugin indent on
 
-let g:vista#renderer#enable_icon = 0
 let g:airline_powerline_fonts = 1
 let g:go_gopls_enabled = 0
 let g:go_gopls_options = ['-remote=auto']
@@ -78,15 +77,16 @@ let g:ale_open_list = 0
 let g:ale_linters={
 \ 'go':['govet','golint'],
 \ 'java':[],
+\ 'rust':['cargo'],
 \ 'python':[],
 \}
 
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 let g:rustfmt_options = '--edition 2018'
 let g:pymode_python = 'python3'
 let g:pymode_indent = 1
 
-let g:coc_global_extensions = ['coc-ultisnips', 'coc-python', 'coc-rust-analyzer']
+let g:coc_global_extensions = ['coc-ultisnips', 'coc-python', 'coc-rust-analyzer', 'coc-phpls', 'coc-tsserver']
 let g:coc_channel_timeout = 3
 let g:coc_user_config = {}
 let g:coc_user_config['languageserver'] = {}
@@ -107,13 +107,17 @@ let g:coc_user_config['languageserver']['golang'] = {
 
 let g:coc_user_config['coc.preferences.formatOnSaveFiletypes'] = ['rust']
 let g:coc_user_config['coc.preferences.rootPatterns'] = ["Cargo.toml"]
-let g:coc_user_config['python.pythonPath'] = '/home/liyiheng/Downloads/work/miniconda3/bin/python'
+"let g:coc_user_config['python.pythonPath'] = '/home/liyiheng/Downloads/work/miniconda3/bin/python'
 let g:coc_user_config['rust.rustfmt_path'] = '/home/liyiheng/.cargo/bin/rustfmt'
 let g:coc_user_config['rust-analyzer.serverPath'] = '/home/liyiheng/.cargo/bin/rust-analyzer'
-let g:coc_user_config['diagnostic.displayByAle'] = v:true 
+let g:coc_user_config['diagnostic.displayByAle'] = v:false
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" neovim 6.0 后，Y 默认映射为 y$, 不符合本人习惯
+" 习惯映射为 yy
+silent! unmap Y
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -122,6 +126,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 nmap <F8> :TagbarToggle<CR>
+"nmap <F8> :Vista!!<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
 "au FileType rust nmap gd <Plug>(rust-def)
