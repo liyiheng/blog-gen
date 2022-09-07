@@ -146,6 +146,11 @@ nmap <F8> :TagbarToggle<CR>
 "nmap <F8> :Vista!!<CR>
 nmap <F7> :NERDTreeToggle<CR>
 
+" 用 FZF 覆盖 LeaderF file 的映射
+if executable('fzf')
+  nmap <leader>f :FZF<enter>
+endif
+
 "au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
