@@ -10,6 +10,10 @@ set number
 "set colorcolumn=81
 "set cuc
 "set cul
+if exists("g:neovide")
+    let g:neovide_transparency=0.8
+    let g:neovide_remember_window_size = v:true
+endif
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -38,9 +42,6 @@ Plug 'easymotion/vim-easymotion'
 "Plug 'racer-rust/vim-racer'
 "Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
-"Plug 'elixir-editors/vim-elixir'
-"Plug 'ryanoasis/vim-devicons'
-"Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 filetype plugin indent on
@@ -74,12 +75,14 @@ let g:UltiSnipsExpandTrigger="<c-x>"
 "let g:syntastic_go_checkers = []
 "let g:syntastic_ocaml_checkers = ['merlin']
 "let g:syntastic_java_checkers = ['checkstyle']
+"
 let g:ale_open_list = 0
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_linters={
-\ 'go':['govet','revive'],
-\ 'java':[],
-\ 'rust':['cargo'],
-\ 'python':[],
+\ 'rust':['cargo', 'rustc'],
+\ 'go':['gopls', 'govet', 'revive'],
+\ 'python':['autopep8'],
+\ 'java':['cspell', 'javac'],
 \}
 
 let g:rustfmt_autosave = 0
@@ -112,6 +115,7 @@ let g:coc_user_config['coc.preferences.rootPatterns'] = ["Cargo.toml"]
 let g:coc_user_config['rust.rustfmt_path'] = '/home/liyiheng/.cargo/bin/rustfmt'
 let g:coc_user_config['rust-analyzer.serverPath'] = '/home/liyiheng/.cargo/bin/rust-analyzer'
 let g:coc_user_config['diagnostic.displayByAle'] = v:true
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 "inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 "inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -143,18 +147,17 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 nmap <F8> :TagbarToggle<CR>
-"nmap <F8> :Vista!!<CR>
 nmap <F7> :NERDTreeToggle<CR>
-
-" 用 FZF 覆盖 LeaderF file 的映射
-if executable('fzf')
-  nmap <leader>f :FZF<enter>
-endif
 
 "au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+
+" 用 FZF 覆盖 LeaderF file 的映射
+if executable('fzf')
+  nmap <leader>f :FZF<enter>
+endif
 
 augroup CloseLoclistWindowGroup
   autocmd!
