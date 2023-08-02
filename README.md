@@ -2,6 +2,7 @@
 
 本想记录一些，用hugo生成[静态博客](https://github.com/liyiheng/blog)，特开此repo。怎料懒癌又犯，就直接markdown吧
 
+- [vim-go 和 coc.nvim 共享 gopls daemon](content/post/vim_go_coc_gopls.md)
 - [【Rust 表达能力探索】尝试实现一个简单的 JSON 解析器](content/post/rust_json_parser.md)
 - [实现时间复杂度为 O(1) 的 LFU](content/post/rust_lfu.md)
 - [RAII: Rust 模拟 golang 中的 defer](content/post/rust_raii_defer.md)
