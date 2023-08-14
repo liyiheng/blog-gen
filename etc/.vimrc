@@ -46,8 +46,11 @@ call plug#end()
 
 filetype plugin indent on
 
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+" 显示指定 XDG_RUNTIME_DIR, 便于 vim-go 和 coc.nvim 共享 gopls daemon
+let $XDG_RUNTIME_DIR='/tmp'
 let g:airline_powerline_fonts = 1
-let g:go_gopls_enabled = 0
+let g:go_gopls_enabled = 1
 let g:go_gopls_options = ['-remote=auto']
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
@@ -148,6 +151,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
+nmap <leader>g :NERDTreeFind<CR>
 
 "au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
