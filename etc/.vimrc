@@ -15,10 +15,18 @@ if exists("g:neovide")
     let g:neovide_remember_window_size = v:true
 endif
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+if has('nvim')
+    if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+      silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+else
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -37,10 +45,6 @@ Plug 'preservim/nerdcommenter'
 Plug 'wfxr/minimap.vim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'easymotion/vim-easymotion'
-
-"Plug 'rust-lang/rust.vim'
-"Plug 'racer-rust/vim-racer'
-"Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 call plug#end()
 
@@ -48,7 +52,7 @@ filetype plugin indent on
 
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 " 显示指定 XDG_RUNTIME_DIR, 便于 vim-go 和 coc.nvim 共享 gopls daemon
-let $XDG_RUNTIME_DIR='/tmp'
+let $XDG_RUNTIME_DIR='/tmp/nvim'
 let g:airline_powerline_fonts = 1
 let g:go_gopls_enabled = 1
 let g:go_gopls_options = ['-remote=auto']
@@ -63,27 +67,12 @@ let g:NERDSpaceDelims = 1
 " <tab> used by coc.nvim
 "let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsExpandTrigger="<c-x>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"let g:UltiSnipsEditSplit="vertical"
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_go_checkers = ['govet','golint']
-"let g:syntastic_go_checkers = []
-"let g:syntastic_ocaml_checkers = ['merlin']
-"let g:syntastic_java_checkers = ['checkstyle']
-"
 let g:ale_open_list = 0
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 let g:ale_linters={
-\ 'rust':['cargo', 'rustc'],
-\ 'go':['gopls', 'govet', 'revive'],
+\ 'rust':['cargo'],
+\ 'go':['govet', 'revive'],
 \ 'python':['autopep8'],
 \ 'java':['cspell', 'javac'],
 \}
@@ -106,7 +95,7 @@ let g:coc_user_config['languageserver']['ccls'] = {
 		\}
 
 let g:coc_user_config['languageserver']['golang'] = {
-		\   'command': 'gopls',
+		\   'command': '/home/liyiheng/go/bin/gopls',
 		\   'args': ['-remote=auto'],
 		\   'rootPatterns': ['go.mod'],
 		\   'filetypes': ['go']
@@ -116,12 +105,12 @@ let g:coc_user_config['coc.preferences.formatOnSaveFiletypes'] = ['rust', 'cpp']
 let g:coc_user_config['coc.preferences.rootPatterns'] = ["Cargo.toml"]
 "let g:coc_user_config['python.pythonPath'] = '/home/liyiheng/Downloads/work/miniconda3/bin/python'
 let g:coc_user_config['rust.rustfmt_path'] = '/home/liyiheng/.cargo/bin/rustfmt'
-let g:coc_user_config['rust-analyzer.serverPath'] = '/home/liyiheng/.cargo/bin/rust-analyzer'
+"let g:coc_user_config['rust-analyzer.serverPath'] = '/home/liyiheng/.cargo/bin/rust-analyzer'
+let g:coc_user_config['rust-analyzer.procMacro.enable'] = v:true
+let g:coc_user_config['workspace.ignoredFolders'] = ['$HOME','$HOME/.cargo/**','$HOME/.rustup/**']
 let g:coc_user_config['diagnostic.displayByAle'] = v:true
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 " remap for complete to use tab and <cr>
@@ -167,4 +156,3 @@ augroup CloseLoclistWindowGroup
   autocmd!
   autocmd QuitPre * if empty(&buftype) | lclose | endif
 augroup END
-
