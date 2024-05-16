@@ -1,0 +1,6 @@
+set easymotion
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(FindUsages)
+nmap \rn <Action>(RenameElement)
+" 对应 nmap<leader>f :FZF<enter> 和 LeaderF rg
+nmap \f <Action>(SearchEverywhere)
