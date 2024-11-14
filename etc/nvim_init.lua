@@ -51,7 +51,7 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -115,6 +115,7 @@ require("lazy").setup({
 			},
 		},
 	},
+	{ "wakatime/vim-wakatime", lazy = false },
 	{
 		"smoka7/hop.nvim",
 		version = "*",
@@ -395,6 +396,7 @@ require("lazy").setup({
 						map("<leader>th", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
+						--vim.lsp.inlay_hint.enable()
 					end
 				end,
 			})
@@ -417,12 +419,20 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			local servers = {
 				-- clangd = {},
-				rust_analyzer = {},
-				gopls = {
-					gopls = {
-						usePlaceholders = true, -- 在参数列表中使用占位符
+				rust_analyzer = {
+					settings = {
+						["rust-analyzer"] = {
+							inlayHints = {
+								enable = true,
+								bindingModeHints = { enable = true },
+								closureReturnTypeHints = { enable = "always" },
+								discriminantHints = { enable = "always" },
+								parameterHints = { enable = true },
+							},
+						},
 					},
 				},
+				gopls = {},
 				-- pyright = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				--
@@ -495,6 +505,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				go = { "goimports" },
 				lua = { "stylua" },
+				json = { "jq" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--
@@ -546,6 +557,7 @@ require("lazy").setup({
 						luasnip.lsp_expand(args.body)
 					end,
 				},
+				experimental = { ghost_text = true },
 				completion = { completeopt = "menu,menuone,noinsert" },
 
 				-- For an understanding of why these mappings were
