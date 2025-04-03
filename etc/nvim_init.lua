@@ -731,6 +731,14 @@ require("lazy").setup({
 	-- { import = 'custom.plugins' },
 })
 
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	update_in_insert = false,
+	severity_sort = false,
+})
+
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- The line beneath this is called `modeline`. See `:help modeline`
