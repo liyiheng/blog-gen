@@ -117,6 +117,24 @@ require("lazy").setup({
 	},
 	{ "wakatime/vim-wakatime", lazy = false },
 	{
+		"Exafunction/windsurf.vim",
+		event = "BufEnter",
+		config = function()
+			vim.keymap.set("i", "<Tab>", function()
+				return vim.fn["codeium#Accept"]()
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-;>", function()
+				return vim.fn["codeium#CycleCompletions"](1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-,>", function()
+				return vim.fn["codeium#CycleCompletions"](-1)
+			end, { expr = true, silent = true })
+			vim.keymap.set("i", "<c-x>", function()
+				return vim.fn["codeium#Clear"]()
+			end, { expr = true, silent = true })
+		end,
+	},
+	{
 		"smoka7/hop.nvim",
 		version = "*",
 		opts = {
@@ -539,6 +557,12 @@ require("lazy").setup({
 							require("luasnip.loaders.from_vscode").lazy_load()
 						end,
 					},
+					{
+						"honza/vim-snippets",
+						config = function()
+							require("luasnip.loaders.from_snipmate").lazy_load()
+						end,
+					},
 				},
 			},
 			"saadparwaiz1/cmp_luasnip",
@@ -583,7 +607,7 @@ require("lazy").setup({
 					-- If you prefer more traditional completion keymaps,
 					-- you can uncomment the following lines
 					--['<CR>'] = cmp.mapping.confirm { select = true },
-					["<Tab>"] = cmp.mapping.select_next_item(),
+					--["<Tab>"] = cmp.mapping.select_next_item(),
 					--['<S-Tab>'] = cmp.mapping.select_prev_item(),
 
 					-- Manually trigger a completion from nvim-cmp.
