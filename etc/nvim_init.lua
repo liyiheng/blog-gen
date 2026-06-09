@@ -720,36 +720,30 @@ require("lazy").setup({
 			--  Check out: https://github.com/echasnovski/mini.nvim
 		end,
 	},
-	{ -- Highlight, edit, and navigate code
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		opts = {
-			ensure_installed = {
-				"bash",
-				"c",
-				"diff",
-				"lua",
-				"luadoc",
-				"markdown",
-				"markdown_inline",
-				"vim",
-				"vimdoc",
-				"go",
-				"rust",
-			},
-			auto_install = true,
-			highlight = {
-				enable = true,
-				-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-				--  If you are experiencing weird indenting issues, add the language to
-				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-				additional_vim_regex_highlighting = { "ruby" },
-			},
-			indent = { enable = true, disable = { "ruby" } },
-		},
-		config = function(_, opts)
-			---@diagnostic disable-next-line: missing-fields
-			require("nvim-treesitter.configs").setup(opts)
+	{ -- Lightweight Tree-sitter parser manager (replaces archived nvim-treesitter)
+		-- Requires tree-sitter CLI: cargo install tree-sitter-cli
+		-- Or: npm install -g tree-sitter-cli
+		"romus204/tree-sitter-manager.nvim",
+		lazy = false,
+		config = function()
+			require("tree-sitter-manager").setup({
+				ensure_installed = {
+					"bash",
+					"dot",
+					"c",
+					"diff",
+					"lua",
+					"luadoc",
+					"markdown",
+					"markdown_inline",
+					"vim",
+					"vimdoc",
+					"go",
+					"rust",
+				},
+				auto_install = true,
+				highlight = true,
+			})
 		end,
 	},
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -770,5 +764,16 @@ vim.diagnostic.config({
 
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+-- Enable treesitter-based indentation for buffers with a parser available
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("treesitter-indent", { clear = true }),
+	callback = function(ev)
+		local lang = vim.treesitter.language.get_lang(ev.match) or ev.match
+		if pcall(vim.treesitter.language.add, lang) then
+			vim.bo[ev.buf].indentexpr = "v:lua.vim.treesitter.indentexpr()"
+		end
+	end,
+})
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
